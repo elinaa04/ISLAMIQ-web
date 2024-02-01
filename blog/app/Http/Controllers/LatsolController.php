@@ -47,7 +47,7 @@ class LatsolController extends Controller
         ]);
 
         // Nilai::create([
-        //     'id_latihan' => $bks->id_latihan, // Assuming id_latihan is the primary key of latihansoal
+        //     'id_latihan' => $bks->id_latihan,
         //     'nilai' => $request->nilai,
         // ]);
 

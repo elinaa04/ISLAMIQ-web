@@ -41,7 +41,6 @@
                             <i class=" menu-icon fa fa-sign-out-alt"></i>Logout
                         </a>
                     </li>
-
                     @endcan
                     @can('isKepsek')
                     <li>
@@ -51,14 +50,11 @@
                         <a href="{{ route('viewProfil') }}"> <i class="menu-icon fa fa-user"></i>Profil</a>
                     </li>
                     <li>
-                        <a href="{{ route('logout') }}"> <i class="menu-icon fa fa-sign-out-alt"></i>Logout</a>
-                    </li>
-                    <li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf
                         </form>
                         <a href="{{ route('login.store') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="menu-icon fa fa-sign-out-alt"></i>Logout
+                            <i class=" menu-icon fa fa-sign-out-alt"></i>Logout
                         </a>
                     </li>
                     @endcan

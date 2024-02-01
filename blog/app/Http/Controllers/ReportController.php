@@ -10,21 +10,6 @@ use Barryvdh\DomPDF\PDF as PDF;
 
 class ReportController extends Controller
 {
-    // public function generateUserListPDF($role)
-    // {
-    //     $users = User::all();
-
-    //     $data = [
-    //         'title' => 'Daftar User',
-    //         'users' => $users,
-    //     ];
-
-    //     $pdf = app('dompdf.wrapper'); // Create an instance of the PDF class
-    //     $pdf->loadView('home.show', $data);
-
-    //     return $pdf->stream('daftar_user.pdf');
-    // }
-
     public function generateUserListPDF($role)
     {
         // Ambil hanya user dengan role yang sesuai

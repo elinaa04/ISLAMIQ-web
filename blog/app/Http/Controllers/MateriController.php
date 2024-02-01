@@ -23,7 +23,7 @@ class MateriController extends Controller
     {
         $request->validate([
             'judulMateri' => 'required|max:255',
-            'fileMateri' => 'required|mimes:pdf|max:20480', // 20MB limit, adjust as needed
+            'fileMateri' => 'required|mimes:pdf|max:20480', // 20MB limit
         ]);
 
         $data = $request->all();

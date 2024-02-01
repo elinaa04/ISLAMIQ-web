@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 
@@ -36,7 +37,7 @@ class AuthController extends Controller
 
 
         if ($user->save()) {
-            // Pernyataan ini akan dijalankan jika penyimpanan berhasil
+            //akan dijalankan jika penyimpanan berhasil
             dd($request->input('ni')); // Sebelum penyimpanan
             $user->save();
             dd($user->ni); // Setelah penyimpanan
@@ -47,7 +48,7 @@ class AuthController extends Controller
                 'data' => $user,
             ]);
         } else {
-            // Pernyataan ini akan dijalankan jika penyimpanan gagal
+            //akan dijalankan jika penyimpanan gagal
             dd($request->input('ni')); // Sebelum penyimpanan
             $user->save();
             dd($user->ni); // Setelah penyimpanan
@@ -152,5 +153,22 @@ class AuthController extends Controller
             'message' => 'Update password berhasil',
             'data' => $user,
         ]);
+    }
+
+    public function logout(Request $request)
+    {
+        // Periksa apakah pengguna sudah terautentikasi
+        if (Auth::check()) {
+            // Logout pengguna
+            Auth::logout();
+
+            // Menonaktifkan sesi
+            $request->session()->invalidate();
+
+            // Regenerasi token CSRF
+            $request->session()->regenerateToken();
+        }
+
+        return response()->json(['message' => 'Berhasil keluar dari aplikasi']);
     }
 }
